@@ -113,7 +113,7 @@ function commands() {
     const list = [];
     const tabs = [['overview', 'Overview', '▦'], ['insights', 'Insights', '▮'], ['findings', 'Findings', '⛨'], ['manifest', 'Manifest', '≡'], ['components', 'Components', '⬡'], ['cert', 'Certificate', '⚿'], ['explorer', 'Explorer', '▤']];
     if (hasResults()) {
-        tabs.forEach(([id, name, ic], i) => list.push({ group: 'Go to', icon: ic, name: name, hint: 'Alt+' + (i + 1), run: () => { if (!inApp()) UCA.showApp && UCA.showApp(); UCA.switchTab(id); } }));
+        tabs.forEach(([id, name, ic], i) => list.push({ group: 'Go to', icon: ic, name: name, hint: 'Alt+' + (i + 1), run: () => { if (!inApp() && UCA.showApp) UCA.showApp(() => UCA.switchTab(id)); else UCA.switchTab(id); } }));
         list.push({ group: 'Export', icon: '⤓', name: 'Export PDF report', run: () => clickExport('pdf') });
         list.push({ group: 'Export', icon: '⤓', name: 'Export HTML report', run: () => runX('html') });
         list.push({ group: 'Export', icon: '⤓', name: 'Export Markdown', run: () => runX('md') });
@@ -515,7 +515,7 @@ function fmtBytes(b) {
 }
 function bytesStats() { return readJSON(KEY_BYTES, { bytes: 0, files: 0 }); }
 let counterRaf = 0;
-function renderBytesCounter(animateFrom) {
+function renderBytesCounter(animateFrom, nudge) {
     const el = $('#bytesAudited'), key = $('#bytesAuditedKey');
     if (!el) return;
     const st = bytesStats();
@@ -529,7 +529,7 @@ function renderBytesCounter(animateFrom) {
         const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
         el.textContent = fmtBytes(from + (to - from) * e);
         if (k < 1) counterRaf = requestAnimationFrame(step);
-        else { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+        else if (nudge) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
     };
     counterRaf = requestAnimationFrame(step);
 }
@@ -539,7 +539,7 @@ function recordBytes(file) {
     const before = st.bytes || 0;
     st.bytes = before + file.size; st.files = (st.files || 0) + 1;
     writeJSON(KEY_BYTES, st);
-    renderBytesCounter(before);
+    renderBytesCounter(before, true);
 }
 
 /* ---------------- wiring ---------------- */
@@ -566,11 +566,16 @@ function init() {
     setupSettings(); applySettings();
     setupOverlays(); setupPalette(); setupKeys(); setupExports(); setupBaseline(); setupByteWall();
     renderHistory();
-    const kick = () => document.documentElement.classList.contains('site-ready') ? renderBytesCounter(0) : setTimeout(kick, 120);
+    const kick = () => document.documentElement.classList.contains('site-ready') ? setTimeout(() => renderBytesCounter(0), 420) : setTimeout(kick, 120);
     renderBytesCounter(); kick();
     $('#sampleBtn') && $('#sampleBtn').addEventListener('click', openSample);
     $('#clearHistoryBtn') && $('#clearHistoryBtn').addEventListener('click', clearHistory);
     document.addEventListener('uca:results', onResults);
+    const mark = $('.creator-mark');
+    if (mark) {
+        const tuck = () => mark.classList.toggle('is-tucked', window.scrollY > 80);
+        window.addEventListener('scroll', tuck, { passive: true }); tuck();
+    }
     const list = $('#findingsList');
     if (list && 'MutationObserver' in window) new MutationObserver(() => expandIssues()).observe(list, { childList: true });
     if (new URLSearchParams(location.search).get('sample') === '1') openSample();

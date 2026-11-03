@@ -25,9 +25,9 @@
     <link rel="preload" as="font" type="font/woff2" href="fonts/JetBrainsMono.woff2" crossorigin>
     <style id="preloaderCSS">
     /* Real site preloader: inline so it paints before anything else loads */
-    #sitePreloader{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;background:#16191f;color:#eef1f5;font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;transition:opacity .45s cubic-bezier(.2,.8,.2,1),transform .45s cubic-bezier(.2,.8,.2,1)}
+    #sitePreloader{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;background:#16191f;color:#eef1f5;font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;transition:opacity .4s cubic-bezier(.2,.8,.2,1)}
     [data-theme="light"] #sitePreloader{background:#f3f5f8;color:#1c2028}
-    #sitePreloader.is-done{opacity:0;transform:scale(1.04);pointer-events:none}
+    #sitePreloader.is-done{opacity:0;pointer-events:none}
     .pl-card{width:min(360px,84vw);display:flex;flex-direction:column;gap:18px;animation:plIn .5s cubic-bezier(.2,.8,.2,1) both}
     @keyframes plIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
     .pl-brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:17px;letter-spacing:-.02em}
@@ -124,8 +124,10 @@
             fileEl.textContent = 'ready';
             setTimeout(function () {
                 root.classList.add('is-done');
-                document.documentElement.classList.add('site-ready');
-                setTimeout(function () { root.remove(); var st = document.getElementById('preloaderCSS'); st && st.remove(); }, 520);
+                setTimeout(function () { document.documentElement.classList.add('site-ready'); }, 120);
+                setTimeout(function () { root.remove(); var st = document.getElementById('preloaderCSS'); st && st.remove(); }, 480);
+                /* hero entrance plays once; afterwards returning to the landing never replays it */
+                setTimeout(function () { document.documentElement.classList.add('hero-done'); }, 1700);
             }, 180);
         }
         function finish() {

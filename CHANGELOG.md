@@ -4,6 +4,15 @@
 
 Created by muvixo.
 
+### 🛠 Motion & UI fixes
+- Every entrance now plays exactly once: no more buttons, cards or panels fading in twice.
+- Page and tab swaps use a single View Transition (no CSS animation stacked on top, no replay when it ends).
+- Result cards stagger in once per scan, never again on filter, search or tab changes.
+- Hero entrance no longer replays when returning to the start page; preloader exits with a clean fade.
+- Loader overlay fully leaves before the report appears; overlapping transitions are queued instead of restarted.
+- Live byte counter nudges only on real new scans (no second pop-in on load).
+- Mobile: full-width hero buttons, truncating package name, credit pill no longer covers content.
+
 ### ✨ New
 - Completely new visual design ("Scan Bay"): graphite / light-table themes, signal-orange brand colour, false-colour X-ray byte wall, new cards, tabs, badges, charts and overlays.
 - Animated dark / light theme switch: circular reveal from the toggle (View Transitions API) with a colour cross-fade fallback, plus a sun / moon cross-scale icon.

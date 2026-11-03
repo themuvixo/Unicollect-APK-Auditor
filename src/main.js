@@ -87,14 +87,37 @@ function animHide(el, done) {
     el.addEventListener('animationend', fin);
     el._leaveTimer = setTimeout(fin, 320);
 }
+let activeVT = null;
 function withViewTransition(cls, update) {
     const root = document.documentElement;
     if (!document.startViewTransition || prefersStill() || root.classList.contains('vt-theme')) { update(); return; }
+    /* A transition is already running: fold this update into it instead of
+       starting a second one (which would abort the first and replay motion). */
+    if (activeVT) { activeVT.updateCallbackDone.then(update, update); return; }
     root.classList.add(cls);
     try {
         const t = document.startViewTransition(update);
-        t.finished.finally(() => root.classList.remove(cls));
-    } catch (_) { root.classList.remove(cls); update(); }
+        activeVT = t;
+        t.finished.finally(() => { root.classList.remove(cls); if (activeVT === t) activeVT = null; });
+    } catch (_) { root.classList.remove(cls); activeVT = null; update(); }
+}
+/* Result cards stagger in once per scan. .fresh is removed afterwards so
+   filters, search and tab switches never replay the entrance. */
+let freshTimer = 0;
+function markFresh() {
+    const app = document.getElementById('appContainer');
+    if (!app) return;
+    clearTimeout(freshTimer);
+    app.classList.remove('fresh');
+    if (prefersStill()) return;
+    void app.offsetWidth;
+    app.classList.add('fresh');
+    freshTimer = setTimeout(() => app.classList.remove('fresh'), 1400);
+}
+function clearFresh() {
+    clearTimeout(freshTimer); freshTimer = 0;
+    const app = document.getElementById('appContainer');
+    if (app) app.classList.remove('fresh');
 }
 
 function toast(message, type) {
@@ -263,11 +286,13 @@ function showProgress(pct, text, payload) {
 function hideProgress() {
     const o = $('#loadingOverlay');
     document.body.classList.remove('analyzing');
-    if (!o || !o.classList.contains('active')) return;
+    if (!o || !o.classList.contains('active')) return Promise.resolve();
     paintLoader(100);
-    if (prefersStill()) { o.classList.remove('active'); return; }
+    if (prefersStill()) { o.classList.remove('active'); return Promise.resolve(); }
     o.classList.add('is-leaving');
-    progressHideTimer = setTimeout(() => { o.classList.remove('active', 'is-leaving'); progressHideTimer = 0; }, 260);
+    return new Promise(res => {
+        progressHideTimer = setTimeout(() => { o.classList.remove('active', 'is-leaving'); progressHideTimer = 0; res(); }, 260);
+    });
 }
 
 async function startAnalysis(file) {
@@ -277,33 +302,37 @@ async function startAnalysis(file) {
     }
     try {
         const results = await analyzeFile(file);
-        hideProgress();
         State.currentResults = results;
+        State.findingsPage = 0;
         renderAll(results);
-        showApp();
+        await hideProgress();
+        showApp(() => switchTabNow('overview'));
         toast('Analysis complete · Score ' + results.securityScore, 'success');
         document.dispatchEvent(new CustomEvent('uca:results', { detail: { results, file, sample: false } }));
         if (results.warnings && results.warnings.length) {
             console.warn('[Unicollect APK Auditor] warnings:', results.warnings);
         }
     } catch (e) {
-        hideProgress();
+        await hideProgress();
         console.error(e);
         toast('Analysis failed: ' + e.message, 'error');
     }
 }
 
-function showApp() {
-    withViewTransition('vt-page', showAppNow);
+function showApp(before) {
+    withViewTransition('vt-page', () => { if (before) before(); showAppNow(); });
 }
 function showAppNow() {
     document.body.classList.add('in-app');
     $('#landingContent') && ($('#landingContent').style.display = 'none');
     $('#appContainer') && $('#appContainer').classList.add('active');
-    window.scrollTo({ top: 0 });
+    markFresh();
+    try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (_) { window.scrollTo(0, 0); }
 }
 
 function showLanding() {
+    /* already on the landing: no page swap, so nothing to animate */
+    if (!document.body.classList.contains('in-app')) { try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) { window.scrollTo(0, 0); } return; }
     withViewTransition('vt-page', showLandingNow);
 }
 function showLandingNow() {
@@ -311,13 +340,15 @@ function showLandingNow() {
     document.dispatchEvent(new CustomEvent('uca:landing'));
     $('#landingContent') && ($('#landingContent').style.display = '');
     $('#appContainer') && $('#appContainer').classList.remove('active');
-    window.scrollTo({ top: 0 });
+    clearFresh();
+    try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (_) { window.scrollTo(0, 0); }
 }
 
 function switchTab(name) {
     const cur = $('.panel.active');
     if (cur && cur.id === 'panel-' + name) return;
     if (!document.body.classList.contains('in-app')) { switchTabNow(name); return; }
+    clearFresh();
     withViewTransition('vt-tab', () => switchTabNow(name));
 }
 function switchTabNow(name) {
@@ -1645,8 +1676,7 @@ function loadResults(results, opts) {
     State.viewerZip = null;
     State.findingsPage = 0;
     renderAll(results);
-    showApp();
-    switchTab('overview');
+    showApp(() => switchTabNow('overview'));
     document.dispatchEvent(new CustomEvent('uca:results', { detail: { results, file: opts.file || null, sample: !!opts.sample } }));
 }
 
