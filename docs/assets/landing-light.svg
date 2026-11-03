@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800" role="img" aria-label="Unicollect APK Auditor landing page, light theme">
+<title>Unicollect APK Auditor · landing (light)</title>
+<defs><clipPath id="frame"><rect x="0" y="0" width="1280" height="800" rx="18"/></clipPath>
+<clipPath id="dz"><rect x="700" y="250" width="500" height="290"/></clipPath>
+<pattern id="gr" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" fill="none" stroke="#05070A" stroke-opacity="0.05"/></pattern>
+<linearGradient id="fd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5F7FA" stop-opacity="0"/><stop offset="1" stop-color="#F5F7FA"/></linearGradient></defs>
+<g clip-path="url(#frame)">
+<rect width="1280" height="800" fill="#FFFFFF"/>
+<rect x="560" y="40" width="720" height="760" fill="url(#gr)"/>
+<rect width="1280" height="40" fill="#F5F7FA"/>
+<circle cx="22" cy="20" r="6" fill="#6B7383" opacity=".5"/><circle cx="42" cy="20" r="6" fill="#6B7383" opacity=".35"/><circle cx="62" cy="20" r="6" fill="#6B7383" opacity=".2"/>
+<rect x="440" y="10" width="400" height="20" rx="6" fill="#FFFFFF" stroke="#05070A" stroke-opacity="0.08"/>
+<text x="640" y="24" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#6B7383">localhost:8765 · Unicollect APK Auditor</text>
+<line x1="0" y1="96" x2="1280" y2="96" stroke="#05070A" stroke-opacity="0.08"/>
+<g transform="translate(60 52) scale(0.5)"><rect x="1" y="1" width="62" height="62" rx="15" fill="#05070A" stroke="#1E2532" stroke-width="2"/><path d="M20 15.5V33a12 12 0 0 0 24 0V15.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/><rect x="9" y="28.5" width="46" height="8" fill="#05070A"/><rect x="9" y="30.5" width="46" height="4" rx="2" fill="#2E6BFF"/><circle cx="50.5" cy="14" r="3.5" fill="#2E6BFF"/></g>
+<text x="104" y="74" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#05070A">Unicollect <tspan fill="#1F5BFF" font-weight="500">APK Auditor</tspan></text>
+<rect x="954" y="52" width="170" height="32" rx="8" fill="none" stroke="#05070A" stroke-opacity="0.14"/>
+<text x="972" y="73" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#3D4555">⌕  Commands</text>
+<rect x="1080" y="60" width="32" height="16" rx="4" fill="#F5F7FA" stroke="#05070A" stroke-opacity="0.14"/><text x="1096" y="72" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#3D4555">⌘K</text>
+<circle cx="1150" cy="68" r="7" fill="none" stroke="#3D4555" stroke-width="1.6"/><circle cx="1188" cy="68" r="7" fill="none" stroke="#3D4555" stroke-width="1.6"/><circle cx="1224" cy="68" r="5" fill="#3D4555"/>
+<rect x="60" y="146" width="316" height="28" rx="14" fill="none" stroke="#05070A" stroke-opacity="0.14"/>
+<circle cx="78" cy="160" r="3.5" fill="#1F5BFF"/>
+<text x="90" y="164" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#3D4555">Unicollect · Android static analysis · v4</text>
+<text x="56" y="290" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-6" fill="#05070A">Audit</text>
+<text x="56" y="385" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-6" fill="#05070A">every</text>
+<text x="56" y="480" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-6" fill="#05070A">byte<tspan fill="#1F5BFF">.</tspan></text>
+<text x="60" y="532" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#3D4555">Drop an .apk. DEX, manifest, certificate and secrets get</text>
+<text x="60" y="556" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#3D4555">parsed right here in your browser. Nothing gets uploaded.</text>
+<rect x="60" y="590" width="170" height="48" rx="11" fill="#1F5BFF"/><text x="145" y="619" text-anchor="middle" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#FFFFFF">Choose an .apk  →</text>
+<rect x="242" y="590" width="180" height="48" rx="11" fill="#FFFFFF" stroke="#05070A" stroke-opacity="0.14"/><text x="332" y="619" text-anchor="middle" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#05070A">View sample report</text>
+<text xml:space="preserve" x="60" y="672" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6B7383"><tspan fill="#1F5BFF">◆</tspan> 100% in-browser    <tspan fill="#1F5BFF">◆</tspan> Zero uploads    <tspan fill="#1F5BFF">◆</tspan> Works offline</text>
+<rect x="700" y="200" width="500" height="340" rx="20" fill="#FFFFFF" stroke="#05070A" stroke-opacity="0.14"/>
+<text x="722" y="230" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#6B7383">unicollect://scan/<tspan fill="#05070A">MyApp.apk</tspan></text>
+<circle cx="1124" cy="226" r="3" fill="#1F5BFF"/><text x="1134" y="230" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" letter-spacing="1.2" fill="#1F5BFF">READY</text>
+<rect x="701" y="250" width="498" height="289" fill="#F5F7FA"/>
+<g clip-path="url(#dz)"><text x="722" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">50</text>
+<text x="762" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">4B</text>
+<text x="802" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">03</text>
+<text x="842" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">04</text>
+<text x="882" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">14</text>
+<text x="922" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">00</text>
+<text x="962" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">08</text>
+<text x="1002" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">08</text>
+<text x="1042" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">08</text>
+<text x="1082" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">00</text>
+<text x="1122" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">A1</text>
+<text x="1162" y="280" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">5C</text>
+<text x="722" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">5E</text>
+<text x="762" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">F3</text>
+<text x="802" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">5F</text>
+<text x="842" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">30</text>
+<text x="882" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">E4</text>
+<text x="922" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">9B</text>
+<text x="962" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">48</text>
+<text x="1002" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">2E</text>
+<text x="1042" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">15</text>
+<text x="1082" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">CA</text>
+<text x="1122" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">E7</text>
+<text x="1162" y="305" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">50</text>
+<text x="722" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">07</text>
+<text x="762" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">20</text>
+<text x="802" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">1E</text>
+<text x="842" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">12</text>
+<text x="882" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">61</text>
+<text x="922" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">7B</text>
+<text x="962" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">0F</text>
+<text x="1002" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">ED</text>
+<text x="1042" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">A7</text>
+<text x="1082" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">E1</text>
+<text x="1122" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">64</text>
+<text x="1162" y="330" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">77</text>
+<text x="722" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">96</text>
+<text x="762" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">FF</text>
+<text x="802" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">02</text>
+<text x="842" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">2B</text>
+<text x="882" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">EA</text>
+<text x="922" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">8E</text>
+<text x="962" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">D0</text>
+<text x="1002" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">2A</text>
+<text x="1042" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">82</text>
+<text x="1082" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">A1</text>
+<text x="1122" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">75</text>
+<text x="1162" y="355" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">93</text>
+<text x="722" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">0F</text>
+<text x="762" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">23</text>
+<text x="802" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">37</text>
+<text x="842" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">CD</text>
+<text x="882" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">37</text>
+<text x="922" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">94</text>
+<text x="962" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C5</text>
+<text x="1002" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">22</text>
+<text x="1042" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">08</text>
+<text x="1082" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">00</text>
+<text x="1122" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">6D</text>
+<text x="1162" y="380" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">6B</text>
+<text x="722" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">1A</text>
+<text x="762" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">F0</text>
+<text x="802" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C0</text>
+<text x="842" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">CB</text>
+<text x="882" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">D6</text>
+<text x="922" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">25</text>
+<text x="962" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">65</text>
+<text x="1002" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">8A</text>
+<text x="1042" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">AC</text>
+<text x="1082" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">2C</text>
+<text x="1122" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">9F</text>
+<text x="1162" y="405" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">AA</text>
+<text x="722" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">07</text>
+<text x="762" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">D1</text>
+<text x="802" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">3C</text>
+<text x="842" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">44</text>
+<text x="882" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">7E</text>
+<text x="922" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">33</text>
+<text x="962" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">05</text>
+<text x="1002" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">1E</text>
+<text x="1042" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">EE</text>
+<text x="1082" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">F9</text>
+<text x="1122" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">5A</text>
+<text x="1162" y="430" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">60</text>
+<text x="722" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">E5</text>
+<text x="762" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">61</text>
+<text x="802" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">43</text>
+<text x="842" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">D6</text>
+<text x="882" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C4</text>
+<text x="922" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">3B</text>
+<text x="962" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">CA</text>
+<text x="1002" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">D7</text>
+<text x="1042" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">6C</text>
+<text x="1082" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">00</text>
+<text x="1122" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">8A</text>
+<text x="1162" y="455" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">9B</text>
+<text x="722" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">0A</text>
+<text x="762" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">6B</text>
+<text x="802" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">5F</text>
+<text x="842" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C9</text>
+<text x="882" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">33</text>
+<text x="922" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">15</text>
+<text x="962" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">4A</text>
+<rect x="999" y="469" width="34" height="17" rx="3" fill="#1F5BFF"/>
+<text x="1002" y="480" fill="#FFFFFF" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">6D</text>
+<rect x="1039" y="469" width="34" height="17" rx="3" fill="#1F5BFF"/>
+<text x="1042" y="480" fill="#FFFFFF" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">E2</text>
+<text x="1082" y="480" fill="#D92D3F" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">84</text>
+<text x="1122" y="480" fill="#D92D3F" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">04</text>
+<text x="1162" y="480" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">A8</text>
+<text x="722" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">97</text>
+<text x="762" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C5</text>
+<text x="802" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">25</text>
+<rect x="839" y="494" width="34" height="17" rx="3" fill="#1F5BFF"/>
+<text x="842" y="505" fill="#FFFFFF" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">26</text>
+<text x="882" y="505" fill="#D92D3F" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">2E</text>
+<text x="922" y="505" fill="#D92D3F" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">6A</text>
+<text x="962" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">7C</text>
+<text x="1002" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">07</text>
+<text x="1042" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">BC</text>
+<text x="1082" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">BE</text>
+<text x="1122" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">E8</text>
+<text x="1162" y="505" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">41</text>
+<text x="722" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">F7</text>
+<text x="762" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">45</text>
+<text x="802" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C5</text>
+<text x="842" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">5D</text>
+<text x="882" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">4E</text>
+<text x="922" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">9F</text>
+<text x="962" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">74</text>
+<text x="1002" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">7F</text>
+<text x="1042" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">61</text>
+<text x="1082" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">51</text>
+<text x="1122" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">64</text>
+<text x="1162" y="530" fill="#B5BCC8" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">C6</text>
+<rect x="700" y="470" width="500" height="70" fill="url(#fd)"/>
+<rect x="700" y="438" width="500" height="2" fill="#1F5BFF"/><rect x="700" y="378" width="500" height="60" fill="#1F5BFF" opacity=".08"/></g>
+<rect x="800" y="318" width="300" height="148" rx="16" fill="#FFFFFF" fill-opacity=".94" stroke="#05070A" stroke-opacity="0.14"/>
+<rect x="928" y="336" width="44" height="44" rx="12" fill="#1F5BFF"/>
+<path d="M950 347v14M944 356l6 6 6-6M940 366v3a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="950" y="414" text-anchor="middle" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#05070A">Drop .apk to audit</text>
+<text x="950" y="440" text-anchor="middle" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#6B7383">or click to browse · up to 1 GB</text>
+<g transform="rotate(-1.2 1000 600)">
+<rect x="770" y="520" width="410" height="140" rx="10" fill="#FFFFFF" stroke="#05070A" stroke-opacity="0.14"/>
+<rect x="770" y="520" width="3" height="140" fill="#D92D3F"/>
+<rect x="1060" y="511" width="104" height="18" rx="9" fill="#05070A"/><text x="1112" y="524" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" letter-spacing="1" fill="#FFFFFF">SAMPLE FINDING</text>
+<rect x="790" y="540" width="46" height="18" rx="9" fill="#D92D3F" fill-opacity=".14"/><text x="813" y="553" text-anchor="middle" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#D92D3F">ISSUE</text>
+<text x="846" y="554" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#05070A">Hardcoded API Key</text>
+<text x="1160" y="554" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#1F5BFF">95%</text>
+<text xml:space="preserve" x="790" y="586" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#3D4555">CWE-798   OWASP M9   MASVS STORAGE-14</text>
+<text x="790" y="610" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#1F5BFF">classes.dex · com/example/Config.java:14</text>
+<rect x="790" y="622" width="370" height="26" rx="6" fill="#F5F7FA" stroke="#05070A" stroke-opacity="0.08"/>
+<text x="800" y="639" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#05070A">AKIAIOSFODNN7EXAMPLE</text>
+</g>
+<line x1="60" y1="716" x2="1220" y2="716" stroke="#05070A" stroke-opacity="0.14"/>
+<text x="60" y="766" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-1.5" fill="#05070A">80+</text><text x="140" y="764" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#6B7383">static rules</text>
+<text x="350" y="766" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-1.5" fill="#05070A">30+</text><text x="430" y="764" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#6B7383">SDK fingerprints</text>
+<text x="640" y="766" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-1.5" fill="#05070A">10</text><text x="696" y="764" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#6B7383">DEX files per APK</text>
+<text x="930" y="766" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-1.5" fill="#1F5BFF">0</text><text x="964" y="764" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#6B7383">bytes uploaded</text>
+</g>
+<rect x="0.5" y="0.5" width="1279" height="799" rx="18" fill="none" stroke="#05070A" stroke-opacity="0.14"/>
+</svg>

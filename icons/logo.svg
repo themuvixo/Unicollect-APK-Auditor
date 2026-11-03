@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Unicollect APK Auditor">
+  <title>Unicollect APK Auditor</title>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#05070A" stroke="#1E2532" stroke-width="2"/>
+  <path d="M20 15.5V33a12 12 0 0 0 24 0V15.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+  <rect x="9" y="28.5" width="46" height="8" fill="#05070A"/>
+  <rect x="9" y="30.5" width="46" height="4" rx="2" fill="#2E6BFF"/>
+  <circle cx="50.5" cy="14" r="3.5" fill="#2E6BFF"/>
+</svg>

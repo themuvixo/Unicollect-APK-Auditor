@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" role="img" aria-label="Unicollect APK Auditor: Audit every byte.">
+<title>Unicollect APK Auditor</title>
+<defs>
+<pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#FFFFFF" stroke-opacity="0.05"/></pattern>
+<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05070A" stop-opacity="0"/><stop offset="1" stop-color="#05070A"/></linearGradient>
+<linearGradient id="glow" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2E6BFF" stop-opacity="0.28"/><stop offset="1" stop-color="#2E6BFF" stop-opacity="0"/></linearGradient>
+<clipPath id="wall"><rect x="760" y="92" width="460" height="276" rx="4"/></clipPath>
+</defs>
+<rect width="1280" height="440" rx="28" fill="#05070A"/>
+<rect width="1280" height="440" rx="28" fill="url(#g)"/>
+<g transform="translate(64 56) scale(0.6875)"><rect x="1" y="1" width="62" height="62" rx="15" fill="#05070A" stroke="#1E2532" stroke-width="2"/><path d="M20 15.5V33a12 12 0 0 0 24 0V15.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/><rect x="9" y="28.5" width="46" height="8" fill="#05070A"/><rect x="9" y="30.5" width="46" height="4" rx="2" fill="#2E6BFF"/><circle cx="50.5" cy="14" r="3.5" fill="#2E6BFF"/></g>
+<text x="122" y="86" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#F4F6FA" letter-spacing="-0.5">Unicollect <tspan fill="#6E9BFF" font-weight="500">APK Auditor</tspan></text>
+<text x="62" y="236" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-6" fill="#F4F6FA">Audit every</text>
+<text x="62" y="336" font-family="Sora, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="104" font-weight="700" letter-spacing="-6" fill="#F4F6FA">byte<tspan fill="#2E6BFF">.</tspan></text>
+<text x="66" y="388" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#6E7787">DEX · MANIFEST · CERTIFICATE · SECRETS · NOTHING LEAVES THE TAB</text>
+<rect x="740" y="56" width="500" height="328" rx="20" fill="#0B0E14" stroke="#FFFFFF" stroke-opacity="0.14"/>
+<text x="764" y="84" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#6E7787">unicollect://scan/<tspan fill="#F4F6FA">MyApp.apk</tspan></text>
+<circle cx="1158" cy="80" r="3.5" fill="#2E6BFF"><animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/></circle>
+<text x="1168" y="84" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#6E9BFF" letter-spacing="1.5">READY</text>
+<line x1="740" y1="98" x2="1240" y2="98" stroke="#FFFFFF" stroke-opacity="0.07"/>
+<g clip-path="url(#wall)">
+<g opacity="0.75"><text x="770" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">50</text>
+<text x="808" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">4B</text>
+<text x="846" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">03</text>
+<text x="884" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">04</text>
+<text x="922" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">14</text>
+<text x="960" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">00</text>
+<text x="998" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">08</text>
+<text x="1036" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">08</text>
+<text x="1074" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">08</text>
+<text x="1112" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">00</text>
+<text x="1150" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">A1</text>
+<text x="1188" y="128" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">5C</text>
+<text x="770" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">30</text>
+<text x="808" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">BB</text>
+<text x="846" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">1D</text>
+<text x="884" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">6D</text>
+<text x="922" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">13</text>
+<text x="960" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">2C</text>
+<text x="998" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">DE</text>
+<text x="1036" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">D6</text>
+<text x="1074" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">23</text>
+<text x="1112" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">7B</text>
+<text x="1150" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">2E</text>
+<text x="1188" y="153" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">D9</text>
+<text x="770" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">1E</text>
+<text x="808" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">3F</text>
+<text x="846" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">72</text>
+<text x="884" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">1F</text>
+<text x="922" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">CB</text>
+<text x="960" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">19</text>
+<text x="998" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">71</text>
+<text x="1036" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">17</text>
+<rect x="1071" y="166" width="32" height="18" rx="3" fill="#2E6BFF"/>
+<text x="1074" y="178" fill="#FFFFFF" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">44</text>
+<text x="1112" y="178" fill="#FF5468" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">94</text>
+<text x="1150" y="178" fill="#FF5468" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">D6</text>
+<text x="1188" y="178" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">49</text>
+<text x="770" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">3C</text>
+<text x="808" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">9D</text>
+<text x="846" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">5C</text>
+<text x="884" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">34</text>
+<text x="922" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">60</text>
+<text x="960" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">BE</text>
+<text x="998" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">31</text>
+<text x="1036" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">20</text>
+<text x="1074" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">1E</text>
+<text x="1112" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">69</text>
+<text x="1150" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">FE</text>
+<text x="1188" y="203" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">DA</text>
+<text x="770" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">A0</text>
+<text x="808" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">EE</text>
+<text x="846" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">E8</text>
+<text x="884" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">B9</text>
+<text x="922" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">99</text>
+<text x="960" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">7F</text>
+<text x="998" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">5C</text>
+<text x="1036" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">7C</text>
+<text x="1074" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">29</text>
+<text x="1112" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">99</text>
+<text x="1150" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">FD</text>
+<text x="1188" y="228" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">AF</text>
+<text x="770" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">E5</text>
+<text x="808" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">93</text>
+<text x="846" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">25</text>
+<text x="884" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">3C</text>
+<text x="922" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">D6</text>
+<text x="960" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">54</text>
+<text x="998" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">AF</text>
+<text x="1036" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">4D</text>
+<text x="1074" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">FA</text>
+<text x="1112" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">D7</text>
+<text x="1150" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">14</text>
+<text x="1188" y="253" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">27</text>
+<text x="770" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">A0</text>
+<text x="808" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">AE</text>
+<rect x="843" y="266" width="32" height="18" rx="3" fill="#2E6BFF"/>
+<text x="846" y="278" fill="#FFFFFF" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">B3</text>
+<text x="884" y="278" fill="#FF5468" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">FE</text>
+<text x="922" y="278" fill="#FF5468" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">E9</text>
+<text x="960" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">23</text>
+<text x="998" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">2F</text>
+<text x="1036" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">8A</text>
+<text x="1074" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">F2</text>
+<text x="1112" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">21</text>
+<text x="1150" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">1F</text>
+<text x="1188" y="278" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">9E</text>
+<rect x="767" y="291" width="32" height="18" rx="3" fill="#2E6BFF"/>
+<text x="770" y="303" fill="#FFFFFF" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">E4</text>
+<text x="808" y="303" fill="#FF5468" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">91</text>
+<text x="846" y="303" fill="#FF5468" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">C5</text>
+<text x="884" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">B1</text>
+<text x="922" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">0B</text>
+<text x="960" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">EC</text>
+<text x="998" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">B5</text>
+<text x="1036" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">56</text>
+<text x="1074" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">3B</text>
+<text x="1112" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">FC</text>
+<text x="1150" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">1E</text>
+<text x="1188" y="303" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">6F</text>
+<text x="770" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">93</text>
+<text x="808" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">42</text>
+<text x="846" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">7E</text>
+<text x="884" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">CB</text>
+<text x="922" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">C8</text>
+<text x="960" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">FE</text>
+<text x="998" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">29</text>
+<text x="1036" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">55</text>
+<text x="1074" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">E5</text>
+<text x="1112" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">CD</text>
+<text x="1150" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">8E</text>
+<text x="1188" y="328" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">46</text>
+<text x="770" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">DC</text>
+<text x="808" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">8E</text>
+<text x="846" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">D4</text>
+<text x="884" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">B7</text>
+<text x="922" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">C2</text>
+<text x="960" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">76</text>
+<text x="998" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">4D</text>
+<text x="1036" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">2A</text>
+<text x="1074" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">5A</text>
+<text x="1112" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">4D</text>
+<text x="1150" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">76</text>
+<text x="1188" y="353" fill="#4A5262" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">77</text></g>
+<rect x="740" y="300" width="500" height="80" fill="url(#fade)"/>
+<g><rect x="740" y="40" width="500" height="60" fill="url(#glow)"/><rect x="740" y="98" width="500" height="2" fill="#2E6BFF"/>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 270;0 0" dur="3.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/></g>
+</g>
+</svg>

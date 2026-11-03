@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="dark light">
+    <title>Unicollect APK Auditor · Android static security analysis</title>
+    <meta name="description" content="Unicollect APK Auditor: Android APK static security scanner that runs 100% in your browser. DEX parsing, binary manifest decoding, signing certificate checks, entropy-aware secret detection, insights, baseline diff, and PDF / HTML / Markdown / JSON / CSV / SARIF export.">
+    <meta name="generator" content="Unicollect APK Auditor 1.0.0">
+    <meta name="author" content="muvixo">
+    <meta name="theme-color" content="#F3F5F8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#16191F" media="(prefers-color-scheme: dark)">
+    <meta name="application-name" content="Unicollect APK Auditor">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' blob:; worker-src 'self' blob:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="no-referrer">
+    <meta property="og:title" content="Unicollect APK Auditor">
+    <meta property="og:description" content="Android APK static security analysis, 100% client-side. Nothing leaves the tab.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="icons/icon-512.svg">
+    <link rel="icon" type="image/svg+xml" href="icons/logo.svg">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preload" as="font" type="font/woff2" href="fonts/Sora.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="fonts/Inter.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="fonts/JetBrainsMono.woff2" crossorigin>
+    <style id="preloaderCSS">
+    /* Real site preloader: inline so it paints before anything else loads */
+    #sitePreloader{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;background:#16191f;color:#eef1f5;font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;transition:opacity .45s cubic-bezier(.2,.8,.2,1),transform .45s cubic-bezier(.2,.8,.2,1)}
+    [data-theme="light"] #sitePreloader{background:#f3f5f8;color:#1c2028}
+    #sitePreloader.is-done{opacity:0;transform:scale(1.04);pointer-events:none}
+    .pl-card{width:min(360px,84vw);display:flex;flex-direction:column;gap:18px;animation:plIn .5s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes plIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+    .pl-brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:17px;letter-spacing:-.02em}
+    .pl-brand svg{width:34px;height:34px}
+    .pl-brand span{color:#f08a3c;font-weight:500}
+    [data-theme="light"] .pl-brand span{color:#c2410c}
+    .pl-grid{display:grid;grid-template-columns:repeat(16,1fr);gap:4px}
+    .pl-grid i{display:block;aspect-ratio:1;border-radius:2px;background:rgba(238,241,245,.08);transition:background-color .3s}
+    [data-theme="light"] .pl-grid i{background:rgba(28,32,40,.08)}
+    .pl-grid i.on{background:#f08a3c}.pl-grid i.on.m{background:#5fb4e8}.pl-grid i.on.g{background:#6fcf8f}
+    [data-theme="light"] .pl-grid i.on{background:#e8590c}[data-theme="light"] .pl-grid i.on.m{background:#1c7ed6}[data-theme="light"] .pl-grid i.on.g{background:#2f9e44}
+    .pl-row{display:flex;justify-content:space-between;align-items:baseline;font:500 13px/1.4 'JetBrains Mono',ui-monospace,monospace;color:rgba(238,241,245,.62)}
+    [data-theme="light"] .pl-row{color:rgba(28,32,40,.6)}
+    .pl-pct{font:700 40px/1 'Sora','Inter',sans-serif;letter-spacing:-.04em;color:inherit}
+    .pl-file{max-width:62%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    @media (prefers-reduced-motion:reduce){#sitePreloader,.pl-card{transition:none;animation:none}}
+    </style>
+    <link rel="stylesheet" href="src/styles.css?v=1.0.0">
+    <script>
+    (function () {
+        try {
+            var q = new URLSearchParams(location.search).get('theme');
+            var s = localStorage.getItem('uca.theme') || localStorage.getItem('theme');
+            var t = (q === 'dark' || q === 'light') ? q : (s || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+            document.documentElement.dataset.theme = t;
+            var st = JSON.parse(localStorage.getItem('uca.settings') || '{}');
+            if (st.density === 'compact') document.documentElement.classList.add('density-compact');
+            if (st.reduceMotion) document.documentElement.classList.add('reduce-motion');
+            if (st.maskSecrets) document.documentElement.classList.add('mask-secrets');
+        } catch (e) {}
+    })();
+    </script>
+</head>
+<body>
+    <div id="sitePreloader" role="progressbar" aria-label="Loading Unicollect APK Auditor" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="pl-card">
+            <div class="pl-brand">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="14" fill="#f08a3c"/><path d="M20 15.5V33a12 12 0 0 0 24 0V15.5" fill="none" stroke="#1a1d23" stroke-width="7" stroke-linecap="round"/><rect x="9" y="30.5" width="46" height="4" rx="2" fill="#1a1d23"/></svg>
+                <div>Unicollect <span>APK Auditor</span></div>
+            </div>
+            <div class="pl-grid" id="plGrid" aria-hidden="true"></div>
+            <div class="pl-row"><span class="pl-pct" id="plPct">0%</span><span id="plBytes">0 B</span></div>
+            <div class="pl-row"><span class="pl-file" id="plFile">starting…</span><span id="plCount">0 / 0</span></div>
+        </div>
+    </div>
+    <script>
+    /* Real loader: tracks every stylesheet, font and script this page needs,
+       counts actual bytes from the Resource Timing API, and only exits once
+       window.load + document.fonts.ready have both fired. */
+    (function () {
+        var ASSETS = ['src/styles.css', 'fonts/Sora.woff2', 'fonts/Inter.woff2', 'fonts/JetBrainsMono.woff2',
+            'lib/jszip.min.js', 'lib/jspdf.umd.min.js', 'src/core/entropy.js', 'src/core/engine.js', 'src/core/export.js',
+            'src/core/report.js', 'src/core/pdf.js', 'src/main.js', 'src/sample.js', 'src/extras.js'];
+        var root = document.getElementById('sitePreloader');
+        var grid = document.getElementById('plGrid');
+        var pctEl = document.getElementById('plPct'), bytesEl = document.getElementById('plBytes');
+        var fileEl = document.getElementById('plFile'), countEl = document.getElementById('plCount');
+        var CELLS = 48, cells = [], tones = ['', 'm', 'g'];
+        for (var c = 0; c < CELLS; c++) { var i = document.createElement('i'); i.className = tones[(c * 7) % 3]; grid.appendChild(i); cells.push(i); }
+        var done = {}, doneCount = 0, bytes = 0, shown = 0, target = 0, finished = false, raf = 0;
+        function fmt(b) { var u = ['B', 'KB', 'MB', 'GB'], k = 0; while (b >= 1024 && k < 3) { b /= 1024; k++; } return (k ? b.toFixed(b < 10 ? 2 : 1) : Math.round(b)) + ' ' + u[k]; }
+        function keyFor(url) { url = String(url || '').split('?')[0]; for (var k = 0; k < ASSETS.length; k++) if (url.slice(-ASSETS[k].length) === ASSETS[k]) return ASSETS[k]; return null; }
+        function sizeFor(url) {
+            try { var e = performance.getEntriesByName(url); e = e[e.length - 1]; if (e) return e.decodedBodySize || e.encodedBodySize || e.transferSize || 0; } catch (_) {}
+            return 0;
+        }
+        function mark(url, size) {
+            var k = keyFor(url); if (!k || done[k]) return;
+            done[k] = true; doneCount++; bytes += size || sizeFor(url) || 0;
+            fileEl.textContent = k.split('/').pop();
+            target = Math.round(100 * doneCount / (ASSETS.length + 1));
+            tick();
+        }
+        function render() {
+            shown += (target - shown) * 0.2; if (Math.abs(target - shown) < 0.5) shown = target;
+            var p = Math.round(shown);
+            pctEl.textContent = p + '%'; root.setAttribute('aria-valuenow', p);
+            bytesEl.textContent = fmt(bytes) + ' loaded';
+            countEl.textContent = doneCount + ' / ' + ASSETS.length;
+            var on = Math.round(CELLS * shown / 100);
+            for (var j = 0; j < CELLS; j++) cells[j].classList.toggle('on', j < on);
+            if (shown !== target) raf = requestAnimationFrame(render); else raf = 0;
+            if (finished && shown >= 100) exit();
+        }
+        function tick() { if (!raf) raf = requestAnimationFrame(render); }
+        try {
+            performance.getEntriesByType('resource').forEach(function (e) { mark(e.name, e.decodedBodySize || e.transferSize); });
+            if ('PerformanceObserver' in window) new PerformanceObserver(function (l) { l.getEntries().forEach(function (e) { mark(e.name, e.decodedBodySize || e.encodedBodySize || e.transferSize); }); }).observe({ type: 'resource', buffered: true });
+        } catch (_) {}
+        document.addEventListener('load', function (ev) { var t = ev.target; if (t && (t.src || t.href)) mark(t.src || t.href); }, true);
+        var exited = false;
+        function exit() {
+            if (exited) return; exited = true;
+            fileEl.textContent = 'ready';
+            setTimeout(function () {
+                root.classList.add('is-done');
+                document.documentElement.classList.add('site-ready');
+                setTimeout(function () { root.remove(); var st = document.getElementById('preloaderCSS'); st && st.remove(); }, 520);
+            }, 180);
+        }
+        function finish() {
+            if (finished) return; finished = true;
+            ASSETS.forEach(function (a) { if (!done[a]) { done[a] = true; doneCount++; } });
+            fileEl.textContent = 'fonts + engine ready'; target = 100; tick();
+        }
+        var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+        var loaded = new Promise(function (r) { if (document.readyState === 'complete') r(); else window.addEventListener('load', r); });
+        Promise.all([loaded, fontsReady]).then(finish, finish);
+        setTimeout(finish, 9000);
+    })();
+    </script>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+        <div class="site-header-inner">
+            <a href="#" class="logo" aria-label="Unicollect APK Auditor home">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="62" height="62" rx="15" class="logo-tile"/>
+                        <path d="M20 15.5V33a12 12 0 0 0 24 0V15.5" fill="none" class="logo-u" stroke-width="7" stroke-linecap="round"/>
+                        <rect x="9" y="28.5" width="46" height="8" class="logo-cut"/>
+                        <rect x="9" y="30.5" width="46" height="4" rx="2" class="logo-beam"/>
+                        <circle cx="50.5" cy="14" r="3.5" class="logo-dot"/>
+                    </svg>
+                </span>
+                <span class="logo-text"><span class="logo-prefix">Unicollect</span><span class="logo-suffix">APK Auditor</span></span>
+            </a>
+            <nav class="nav-links" aria-label="Main">
+                <button class="nav-link nav-palette" id="paletteBtn" type="button" title="Command palette (Ctrl/⌘ + K)">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span class="nav-palette-label">Commands</span>
+                    <kbd class="kbd">⌘K</kbd>
+                </button>
+                <button class="nav-link icon" id="shortcutsBtn" type="button" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+                </button>
+                <button class="nav-link icon" id="settingsBtn" type="button" aria-label="Settings" title="Settings">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                </button>
+                <button class="nav-link icon theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark / light theme" title="Toggle theme (T)">
+                    <span class="theme-icons" aria-hidden="true"><svg class="theme-dark"  viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-light" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+    <section class="hero" id="landingContent">
+        <div class="bay-glow" aria-hidden="true"></div>
+
+        <div class="hero-inner">
+            <div class="hero-text">
+                <span class="hero-tag"><span class="hero-tag-dot"></span>Android static analysis · v1.0.0</span>
+                <h1 class="hero-title">Audit<br>every <span class="hero-title-accent">byte.</span></h1>
+                <p class="hero-subtitle">Drop an <code>.apk</code> into the scanner. DEX, manifest, certificate and secrets get X-rayed right here in your browser.</p>
+
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-lg" id="heroCta" type="button">
+                        Choose an .apk
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                    <button class="btn btn-ghost btn-lg" id="sampleBtn" type="button">View sample report</button>
+                </div>
+
+                <div class="hero-checks">
+                    <span class="hero-check"><span class="hero-check-dot"></span>100% in-browser</span>
+                    <span class="hero-check"><span class="hero-check-dot"></span>Zero uploads</span>
+                    <span class="hero-check"><span class="hero-check-dot"></span>Works offline</span>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop APK file or click to select">
+                    <div class="dropzone-toprow">
+                        <span class="dropzone-lamp" aria-hidden="true"></span>
+                        <span class="dropzone-file mono">scan bay / <span class="dz-name">MyApp.apk</span></span>
+                        <span class="dropzone-status mono" id="dzStatus">READY</span>
+                    </div>
+                    <div class="dropzone-body">
+                        <div class="byte-wall mono" id="byteWall" aria-hidden="true"></div>
+                        <div class="dropzone-center">
+                            <div class="dropzone-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+                            </div>
+                            <div class="dropzone-title">Drop <code>.apk</code> to scan</div>
+                            <div class="dropzone-desc">or click to browse · up to 1 GB</div>
+                        </div>
+                    </div>
+                    <div class="dropzone-legend mono" aria-hidden="true">
+                        <span class="lg lg-o">code</span>
+                        <span class="lg lg-m">signing</span>
+                        <span class="lg lg-g">resources</span>
+                        <span class="lg-note">false-colour byte view</span>
+                    </div>
+                </div>
+
+                <div class="preview-card" id="previewCard" aria-hidden="true">
+                    <div class="preview-card-head">
+                        <span class="preview-sev preview-sev-high" data-field="sev">ISSUE</span>
+                        <span class="preview-title" data-field="title">Hardcoded API Key</span>
+                        <span class="preview-conf" data-field="conf">95%</span>
+                    </div>
+                    <div class="preview-meta" data-field="meta">
+                        <span class="preview-tag">CWE-798</span>
+                        <span class="preview-tag">OWASP M9</span>
+                        <span class="preview-tag">MASVS STORAGE-14</span>
+                    </div>
+                    <div class="preview-instance">
+                        <span class="preview-instance-num">#1</span>
+                        <code class="preview-file" data-field="file">classes.dex · com/example/Config.java:14</code>
+                    </div>
+                    <code class="preview-match" data-field="match">&#65;KIA&#73;OSFODNN7EXAMPLE</code>
+                </div>
+            </div>
+
+            <input type="file" id="fileInput" class="file-input" accept=".apk,.zip" aria-label="Select APK file">
+            <input type="file" id="baselineInput" class="file-input" accept=".json,application/json" aria-label="Select baseline JSON report">
+        </div>
+
+        <div class="hero-numbers" aria-label="Coverage">
+            <div class="hero-number"><span class="hero-number-val">80+</span><span class="hero-number-key">static rules</span></div>
+            <div class="hero-number"><span class="hero-number-val">30+</span><span class="hero-number-key">SDK fingerprints</span></div>
+            <div class="hero-number"><span class="hero-number-val">10</span><span class="hero-number-key">DEX files per APK</span></div>
+            <div class="hero-number hero-number-live"><span class="hero-number-val mono-num" id="bytesAudited">0 B</span><span class="hero-number-key" id="bytesAuditedKey">scanned locally · 0 B uploaded</span></div>
+        </div>
+    </section>
+
+    <section class="landing-section" id="historySection" hidden>
+        <div class="landing-section-inner">
+            <div class="landing-section-head">
+                <h2 class="landing-h2">Recent scans</h2>
+                <button class="btn btn-ghost btn-sm" id="clearHistoryBtn" type="button">Clear history</button>
+            </div>
+            <p class="landing-note">Only metadata is kept, in this browser. Re-drop the file to reopen a report.</p>
+            <div class="history-grid" id="historyList"></div>
+        </div>
+    </section>
+
+    <section class="landing-section" id="parseSection">
+        <div class="landing-section-inner">
+            <h2 class="landing-h2">What gets opened up</h2>
+            <div class="hero-feats-row">
+                <div class="hero-feat"><span class="hero-feat-key">DEX</span><span class="hero-feat-val">Header, string pool, classes, methods, bytecode</span></div>
+                <div class="hero-feat"><span class="hero-feat-key">Manifest</span><span class="hero-feat-val">Binary AXML decoded: permissions, components, intent filters</span></div>
+                <div class="hero-feat"><span class="hero-feat-key">Signing</span><span class="hero-feat-val">PKCS#7 subject, issuer, algorithm, expiry, v1 / v2 / v3</span></div>
+                <div class="hero-feat"><span class="hero-feat-key">Secrets</span><span class="hero-feat-val">AWS, Stripe, Google, GitHub, Slack, JWT, PEM, entropy-gated</span></div>
+                <div class="hero-feat"><span class="hero-feat-key">Insights</span><span class="hero-feat-val">Hardening checklist, OWASP map, hot files, fingerprints</span></div>
+                <div class="hero-feat"><span class="hero-feat-key">Diff</span><span class="hero-feat-val">Compare against a previous JSON report: new vs. resolved</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-band" aria-label="Privacy">
+        <div class="landing-band-inner">
+            <p class="band-statement">Your APK never leaves this tab.</p>
+            <p class="band-sub mono">File API → Web Worker → memory · strict CSP · no network calls · 0 B uploaded</p>
+        </div>
+    </section>
+
+    <div class="app-container" id="appContainer">
+        <div class="app-header">
+            <div class="app-title">
+                <div class="app-icon" id="appIcon" aria-hidden="true"></div>
+                <div class="app-info">
+                    <h2 id="appName">App Name</h2>
+                    <p id="bundleId" class="mono">package.name</p>
+                </div>
+                <span class="sample-pill" id="samplePill" hidden>Sample report</span>
+            </div>
+            <div class="app-actions">
+                <button class="btn btn-ghost" id="copySummaryBtn" type="button" title="Copy a plain-text summary">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    Copy summary
+                </button>
+                <div class="export-menu">
+                    <button class="btn btn-ghost" id="exportMenuBtn" type="button" aria-haspopup="true" aria-expanded="false" title="Export findings">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Export
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="export-dropdown" id="exportDropdown" role="menu" hidden>
+                        <button class="export-item" data-export="pdf"   role="menuitem" type="button"><span class="export-item-name">PDF report</span><span class="export-item-desc">printable audit</span></button>
+                        <button class="export-item" data-xexport="html" role="menuitem" type="button"><span class="export-item-name">HTML report <span class="new-tag">new</span></span><span class="export-item-desc">single self-contained file</span></button>
+                        <button class="export-item" data-xexport="md"   role="menuitem" type="button"><span class="export-item-name">Markdown <span class="new-tag">new</span></span><span class="export-item-desc">for tickets, PRs, wikis</span></button>
+                        <button class="export-item" data-export="json"  role="menuitem" type="button"><span class="export-item-name">JSON</span><span class="export-item-desc">full result tree · usable as baseline</span></button>
+                        <button class="export-item" data-export="csv"   role="menuitem" type="button"><span class="export-item-name">CSV</span><span class="export-item-desc">findings table</span></button>
+                        <button class="export-item" data-export="sarif" role="menuitem" type="button"><span class="export-item-name">SARIF 2.1</span><span class="export-item-desc">GitHub Code Scanning</span></button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="newScanBtn" type="button">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                    New scan
+                </button>
+            </div>
+        </div>
+
+        <nav class="tabs" role="tablist" aria-label="Analysis tabs">
+            <button class="tab active" role="tab" data-tab="overview" aria-selected="true" aria-controls="panel-overview">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Overview
+            </button>
+            <button class="tab" role="tab" data-tab="insights" aria-selected="false" aria-controls="panel-insights">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                Insights
+            </button>
+            <button class="tab" role="tab" data-tab="findings" aria-selected="false" aria-controls="panel-findings">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Findings <span class="tab-badge" id="findingsCount">0</span>
+            </button>
+            <button class="tab" role="tab" data-tab="manifest" aria-selected="false" aria-controls="panel-manifest">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Manifest
+            </button>
+            <button class="tab" role="tab" data-tab="components" aria-selected="false" aria-controls="panel-components">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                Components
+            </button>
+            <button class="tab" role="tab" data-tab="cert" aria-selected="false" aria-controls="panel-cert">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Cert
+            </button>
+            <button class="tab" role="tab" data-tab="explorer" aria-selected="false" aria-controls="panel-explorer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                Explorer
+            </button>
+        </nav>
+
+        <section id="panel-overview" class="panel active" role="tabpanel">
+            <div class="stats-grid" id="overviewStats"></div>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Application</div>
+                <div id="appInfoGrid" class="results-body"></div>
+            </div>
+            <div class="overview-split">
+                <div class="results-section">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Dangerous permissions</div>
+                    <div id="dangerousPermsList" class="results-body"></div>
+                </div>
+                <div class="results-section">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>Trackers &amp; SDKs</div>
+                    <div id="trackersList" class="results-body"></div>
+                </div>
+            </div>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>URLs found in DEX</div>
+                <div id="urlsList" class="results-body"></div>
+            </div>
+            <div id="warningsBanner" hidden></div>
+        </section>
+
+        <section id="panel-insights" class="panel" role="tabpanel" hidden>
+            <div class="insights-grid">
+                <div class="results-section span-2">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Hardening checklist <span class="results-header-sub" id="checklistScore"></span></div>
+                    <div id="insightsChecklist" class="results-body"></div>
+                </div>
+                <div class="results-section">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Issues by category</div>
+                    <div id="insightsCategories" class="results-body"></div>
+                </div>
+                <div class="results-section">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>OWASP Mobile Top 10</div>
+                    <div id="insightsOwasp" class="results-body"></div>
+                </div>
+                <div class="results-section">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 002.5 2.5z"/></svg>Hot files</div>
+                    <div id="insightsFiles" class="results-body"></div>
+                </div>
+                <div class="results-section">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></svg>File fingerprints</div>
+                    <div id="insightsHashes" class="results-body"></div>
+                </div>
+                <div class="results-section span-2">
+                    <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Baseline diff
+                        <button class="btn btn-ghost btn-sm results-header-action" id="baselineBtn" type="button">Load previous JSON report</button>
+                    </div>
+                    <div id="insightsDiff" class="results-body"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel-findings" class="panel" role="tabpanel" hidden>
+            <div class="findings-toolbar" role="toolbar" aria-label="Findings filters">
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all" type="button">All</button>
+                    <button class="filter-btn" data-filter="issue" type="button">Issues</button>
+                    <button class="filter-btn" data-filter="info" type="button">Info</button>
+                    <button class="filter-btn" data-filter="secure" type="button">Secure</button>
+                </div>
+                <div class="findings-controls">
+                    <label class="search-wrap">
+                        <span class="sr-only">Search findings</span>
+                        <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="search" id="findingsSearchInput" placeholder="Search rule, file, match, CWE…   ( / )" aria-label="Search findings">
+                    </label>
+                    <label class="sort-wrap">
+                        <span>Sort</span>
+                        <select id="findingsSort" aria-label="Sort findings">
+                            <option value="severity">Severity</option>
+                            <option value="confidence">Confidence</option>
+                            <option value="count">Count</option>
+                            <option value="name">Name</option>
+                        </select>
+                    </label>
+                    <label class="conf-wrap">
+                        <span>Min confidence <span id="findingsMinConfidenceLabel">≥ 0%</span></span>
+                        <input type="range" id="findingsMinConfidence" min="0" max="100" step="5" value="0" aria-label="Minimum confidence">
+                    </label>
+                    <div class="bulk-actions">
+                        <button class="bulk-btn" id="expandAllBtn" type="button" title="Expand all">Expand all</button>
+                        <button class="bulk-btn" id="collapseAllBtn" type="button" title="Collapse all">Collapse all</button>
+                    </div>
+                </div>
+            </div>
+            <div class="results-section">
+                <div class="results-header">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span>Findings</span>
+                    <span id="findingsResultCount" class="results-header-sub">0</span>
+                </div>
+                <div id="findingsList" class="results-body" role="list"></div>
+                <div id="findingsPager" class="findings-pager" aria-label="Pagination"></div>
+            </div>
+        </section>
+
+        <section id="panel-manifest" class="panel" role="tabpanel" hidden>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Package &amp; SDK</div>
+                <div id="manifestSummary" class="results-body"></div>
+            </div>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>All permissions <span id="permissionsCount" class="results-header-sub">0</span></div>
+                <div id="permissionsList" class="results-body"></div>
+            </div>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Raw AndroidManifest.xml
+                    <button class="btn btn-ghost btn-sm results-header-action" id="copyManifestBtn" type="button">Copy XML</button>
+                </div>
+                <div id="manifestRaw" class="results-body"></div>
+            </div>
+        </section>
+
+        <section id="panel-components" class="panel" role="tabpanel" hidden>
+            <div id="componentsSummary"></div>
+            <div class="findings-toolbar" role="toolbar" aria-label="Components filters">
+                <div id="componentsToolbar" class="components-toolbar"></div>
+            </div>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>Components</div>
+                <div id="componentsList" class="results-body"></div>
+            </div>
+        </section>
+
+        <section id="panel-cert" class="panel" role="tabpanel" hidden>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Signing certificate</div>
+                <div id="certCard" class="results-body"></div>
+            </div>
+            <div class="results-section">
+                <div class="results-header"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M22 4L12 14.01l-3-3"/></svg>Signature scheme</div>
+                <div id="sigSchemeCard" class="results-body"></div>
+            </div>
+        </section>
+
+        <section id="panel-explorer" class="panel" role="tabpanel" hidden>
+            <div class="explorer-container">
+                <aside class="explorer-sidebar" aria-label="Files">
+                    <div class="quick-access">
+                        <div class="quick-access-header"><span>Quick access</span></div>
+                        <div class="quick-access-list" id="quickAccessList"></div>
+                    </div>
+                    <div class="explorer-controls">
+                        <div class="explorer-search-mode" role="tablist" aria-label="Search mode">
+                            <button class="explorer-search-tab active" data-search-mode="name" type="button">File name</button>
+                            <button class="explorer-search-tab" data-search-mode="content" type="button">In files</button>
+                            <button class="explorer-search-tab" data-search-mode="strings" type="button">DEX strings</button>
+                        </div>
+                        <input type="search" id="fileSearchInput" placeholder="Search files…" aria-label="Search">
+                        <div class="explorer-search-hint mono" id="explorerSearchHint"></div>
+                    </div>
+                    <div id="fileSearchResults" role="listbox"></div>
+                    <div class="tree-section-header">
+                        <span>Files</span>
+                        <span class="tree-file-count" id="totalFileCount"></span>
+                    </div>
+                    <div class="file-tree-container" id="fileTree" role="tree"></div>
+                </aside>
+                <div class="explorer-main">
+                    <div class="explorer-toolbar">
+                        <span class="current-file-path mono" id="currentFilePath">Select a file</span>
+                        <button class="viewer-btn" id="downloadFileBtn" type="button" title="Download this file" aria-label="Download current file" disabled>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Download
+                        </button>
+                    </div>
+                    <div class="file-viewer-container">
+                        <div id="fileViewer"><div class="no-data">Pick a file from Quick access or the tree</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-brand">
+                <span class="footer-mark" aria-hidden="true"></span>
+                <span><strong>Unicollect</strong> APK Auditor</span>
+                <span class="footer-divider">·</span>
+                <span class="mono footer-version">v1.0.0</span>
+            </div>
+            <div class="footer-copyright">Created by <strong class="footer-creator">muvixo</strong> · For authorized testing only</div>
+        </div>
+    </footer>
+
+    <div class="creator-mark" aria-label="Created by muvixo"><span class="creator-dot" aria-hidden="true"></span>Created by <b>muvixo</b></div>
+
+    <div class="loading-overlay" id="loadingOverlay" role="alertdialog" aria-live="polite" aria-labelledby="loadingText">
+        <div class="loading-card">
+            <div class="loader" id="loaderWall" aria-hidden="true"></div>
+            <div class="loading-text" id="loadingText">Analyzing APK…</div>
+            <div class="loading-subtext" id="progressText">Extracting…</div>
+            <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="loading-meta mono"><span id="progressBytes">0 B read</span><span id="progressPct">0%</span></div>
+            <div class="loading-detail mono" id="progressDetail"></div>
+        </div>
+    </div>
+
+    <!-- Command palette -->
+    <div class="overlay" id="paletteOverlay" hidden>
+        <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+            <div class="palette-input-wrap">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="paletteInput" placeholder="Type a command…" aria-label="Command" autocomplete="off" spellcheck="false">
+                <kbd class="kbd">Esc</kbd>
+            </div>
+            <div class="palette-list" id="paletteList" role="listbox"></div>
+        </div>
+    </div>
+
+    <!-- Settings drawer -->
+    <div class="overlay overlay-side" id="settingsOverlay" hidden>
+        <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+            <div class="drawer-head">
+                <h3 id="settingsTitle">Settings</h3>
+                <button class="nav-link icon" data-close type="button" aria-label="Close settings">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="drawer-body">
+                <div class="setting">
+                    <div><div class="setting-name">Theme</div><div class="setting-desc">Graphite or light table. Signal orange either way.</div></div>
+                    <div class="seg" data-setting="theme"><button type="button" data-value="dark">Dark</button><button type="button" data-value="light">Light</button></div>
+                </div>
+                <div class="setting">
+                    <div><div class="setting-name">Density</div><div class="setting-desc">Tighter cards and rows.</div></div>
+                    <div class="seg" data-setting="density"><button type="button" data-value="comfortable">Comfy</button><button type="button" data-value="compact">Compact</button></div>
+                </div>
+                <div class="setting">
+                    <div><div class="setting-name">Findings per page</div><div class="setting-desc">Pagination size in Findings.</div></div>
+                    <div class="seg" data-setting="perPage"><button type="button" data-value="25">25</button><button type="button" data-value="50">50</button><button type="button" data-value="100">100</button></div>
+                </div>
+                <label class="setting setting-toggle">
+                    <div><div class="setting-name">Mask secrets</div><div class="setting-desc">Blur matched values until hover. Good for screen shares.</div></div>
+                    <input type="checkbox" class="switch" data-setting="maskSecrets">
+                </label>
+                <label class="setting setting-toggle">
+                    <div><div class="setting-name">Auto-expand issues</div><div class="setting-desc">Open every issue card after a scan.</div></div>
+                    <input type="checkbox" class="switch" data-setting="autoExpand">
+                </label>
+                <label class="setting setting-toggle">
+                    <div><div class="setting-name">Remember scans</div><div class="setting-desc">Keep metadata of the last 12 scans in this browser.</div></div>
+                    <input type="checkbox" class="switch" data-setting="history">
+                </label>
+                <label class="setting setting-toggle">
+                    <div><div class="setting-name">Reduce motion</div><div class="setting-desc">Stop the byte scanner and transitions.</div></div>
+                    <input type="checkbox" class="switch" data-setting="reduceMotion">
+                </label>
+                <div class="setting">
+                    <div><div class="setting-name">Reset</div><div class="setting-desc">Clear settings and history.</div></div>
+                    <button class="btn btn-ghost btn-sm danger" id="resetSettingsBtn" type="button">Reset all</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Shortcuts -->
+    <div class="overlay" id="shortcutsOverlay" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+            <div class="drawer-head">
+                <h3 id="shortcutsTitle">Keyboard shortcuts</h3>
+                <button class="nav-link icon" data-close type="button" aria-label="Close">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <dl class="shortcut-list">
+                <div><dt><kbd class="kbd">Ctrl</kbd> <kbd class="kbd">K</kbd></dt><dd>Command palette</dd></div>
+                <div><dt><kbd class="kbd">Alt</kbd> <kbd class="kbd">1–7</kbd></dt><dd>Jump to tab</dd></div>
+                <div><dt><kbd class="kbd">← →</kbd></dt><dd>Move between tabs</dd></div>
+                <div><dt><kbd class="kbd">/</kbd></dt><dd>Search findings</dd></div>
+                <div><dt><kbd class="kbd">N</kbd></dt><dd>New scan</dd></div>
+                <div><dt><kbd class="kbd">T</kbd></dt><dd>Toggle theme</dd></div>
+                <div><dt><kbd class="kbd">?</kbd></dt><dd>This list</dd></div>
+                <div><dt><kbd class="kbd">Esc</kbd></dt><dd>Close menus / collapse findings</dd></div>
+            </dl>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="lib/jszip.min.js"></script>
+    <script src="lib/jspdf.umd.min.js"></script>
+    <script src="src/core/entropy.js"></script>
+    <script src="src/core/engine.js"></script>
+    <script src="src/core/export.js"></script>
+    <script src="src/core/report.js"></script>
+    <script src="src/core/pdf.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/sample.js"></script>
+    <script src="src/extras.js"></script>
+</body>
+</html>
